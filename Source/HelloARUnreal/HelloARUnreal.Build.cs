@@ -20,19 +20,34 @@ public class HelloARUnreal : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore"  });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {
 			"GoogleARCoreBase",
 			"ProceduralMeshComponent",
-		});
+          
+    });
+     
+        PublicIncludePaths.Add(ModuleDirectory + "\\Lib");
 
-		// Uncomment if you are using Slate UI
-		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+        PublicAdditionalLibraries.Add(ModuleDirectory + "\\Lib\\aws-cpp-sdk-core.lib");
+      
+        PublicAdditionalLibraries.Add(ModuleDirectory + "\\Lib\\aws-cpp-sdk-s3.lib");
 
-		// Uncomment if you are using online features
-		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
+      
+        
+        PublicDelayLoadDLLs.Add(ModuleDirectory + "\\Lib\\aws-cpp-sdk-core.dll");
 
-		// To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
-	}
+        PublicDelayLoadDLLs.Add(ModuleDirectory + "\\Lib\\aws-cpp-sdk-s3.dll");
+
+        
+
+        // Uncomment if you are using Slate UI
+        // PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+
+        // Uncomment if you are using online features
+        // PrivateDependencyModuleNames.Add("OnlineSubsystem");
+
+        // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
+    }
 }

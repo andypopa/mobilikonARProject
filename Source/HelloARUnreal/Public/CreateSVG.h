@@ -16,8 +16,8 @@ class HELLOARUNREAL_API UCreateSVG : public UBlueprintFunctionLibrary
 	
 	
 	
-		UFUNCTION(BlueprintCallable, Category = "CreateSVG", meta = (Keywords = "CreateSVG"))
-		void CreateSVGFunction();
+		UFUNCTION(BlueprintCallable, Category = "CreateSVG")
+		void CreateSVGFunction(FString& UploadStatus, FString FileName, FString objectStream);
 
 	UFUNCTION(BlueprintCallable, Category = "save")
 		static bool FileSaveString(FString SaveTextB, FString FileNameB);
